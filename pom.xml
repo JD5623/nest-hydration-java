@@ -13,6 +13,14 @@
 	    <java.version>1.8</java.version>
     </properties>
 
+    <distributionManagement>
+       <repository>
+         <id>github</id>
+         <name>GitHub JD5623 Apache Maven Packages</name>
+         <url>https://maven.pkg.github.com/JD5623/nest-hydration-java</url>
+       </repository>
+    </distributionManagement>
+
     <build>
         <pluginManagement>
             <plugins>
