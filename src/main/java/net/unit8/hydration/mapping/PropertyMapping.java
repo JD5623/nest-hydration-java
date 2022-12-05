@@ -147,13 +147,18 @@ public class PropertyMapping {
     private void putKey(String key) {
         keys.add(key);
     }
+    private String repeat(String str, int times) {
+        for (int i=0;i<times;i++)
+            str+=str;
+        return str;
+    }
 
     private String toString(int depth) {
         int indent = depth * 2;
         StringBuilder sb = new StringBuilder();
         for (String key : keys) {
             if (hasColumnProperty(key)) {
-                sb.append(" ".repeat(indent))
+                sb.append(repeat(" ", indent))
                         .append(key)
                         .append(": {");
                 ColumnProperty columnProperty = getColumnProperty(key);
@@ -168,15 +173,15 @@ public class PropertyMapping {
             }
             if (toOneProperties.containsKey(key)) {
                 PropertyMapping propertyMapping = toOneProperties.get(key);
-                sb.append(" ".repeat(indent)).append(key).append(": {\n")
+                sb.append(repeat(" ", indent)).append(key).append(": {\n")
                         .append(propertyMapping.toString(depth + 1))
-                        .append(" ".repeat(indent)).append("},\n");
+                        .append(repeat(" ", indent)).append("},\n");
             }
             if (toManyProperties.containsKey(key)) {
                 PropertyMapping propertyMapping = toManyProperties.get(key);
-                sb.append(" ".repeat(indent)).append(key).append(": {[\n")
+                sb.append(repeat(" " , indent)).append(key).append(": {[\n")
                         .append(propertyMapping.toString(depth + 1))
-                        .append(" ".repeat(indent)).append("]},\n");
+                        .append(repeat(" ", indent)).append("]},\n");
             }
         }
         return sb.toString();
