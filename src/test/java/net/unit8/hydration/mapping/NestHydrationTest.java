@@ -31,7 +31,7 @@ class NestHydrationTest {
 
     @Test
     void emptyData() {
-        assertThat(nestHydration.nest(List.of())).isNull();
+        assertThat(nestHydration.nest(java.util.Arrays.asList())).isNull();
     }
 
     @Test
