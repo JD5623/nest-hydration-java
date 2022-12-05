@@ -36,26 +36,26 @@ class NestHydrationTest {
 
     @Test
     void hintedMappingIdTypeUnspecifiedFirstColumnShouldBeUsedAsId() throws IOException {
-        Object nest = nestHydration.nest(List.of(
-                new LinkedHashMap<>() {
+        Object nest = nestHydration.nest(java.util.Arrays.asList(
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a", 1);
                         put("_b__c", "c1");
                     }
                 },
-                new LinkedHashMap<>() {
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a", 1);
                         put("_b__c", "c2");
                     }
                 },
-                new LinkedHashMap<>() {
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a", 2);
                         put("_b__c", "c3");
                     }
                 },
-                new LinkedHashMap<>() {
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a", 2);
                         put("_b__c", "c4");
@@ -67,26 +67,26 @@ class NestHydrationTest {
 
     @Test
     void hintedMappingIdTypeSpecifiedFirstColumnShouldBeUsed() throws IOException {
-        Object nest = nestHydration.nest(List.of(
-                new LinkedHashMap<>() {
+        Object nest = nestHydration.nest(java.util.Arrays.asList(
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a___ID", 1);
                         put("_b__c", "c1");
                     }
                 },
-                new LinkedHashMap<>() {
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a___ID", 1);
                         put("_b__c", "c2");
                     }
                 },
-                new LinkedHashMap<>() {
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a___ID", 2);
                         put("_b__c", "c3");
                     }
                 },
-                new LinkedHashMap<>() {
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a___ID", 2);
                         put("_b__c", "c4");
@@ -97,26 +97,26 @@ class NestHydrationTest {
 
     @Test
     void hintedMappingIdTypeSpecifiedOnOtherColumnShouldBeUsed() throws IOException {
-        Object nest = nestHydration.nest(List.of(
-                new LinkedHashMap<>() {
+        Object nest = nestHydration.nest(java.util.Arrays.asList(
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a__c", "c1");
                         put("_b___ID", 1);
                     }
                 },
-                new LinkedHashMap<>() {
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a__c", "c2");
                         put("_b___ID", 1);
                     }
                 },
-                new LinkedHashMap<>() {
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a__c", "c3");
                         put("_b___ID", 2);
                     }
                 },
-                new LinkedHashMap<>() {
+                new LinkedHashMap<String,Object>() {
                     {
                         put("_a__c", "c4");
                         put("_b___ID", 2);
