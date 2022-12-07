@@ -10,13 +10,13 @@ class PropertyMappingTest {
 
     @Test
     void passedEmptyAsColumnList() {
-        assertThat(PropertyMapping.structPropToColumnMapFromColumnHints(List.of()))
+        assertThat(PropertyMapping.structPropToColumnMapFromColumnHints(java.util.Arrays.asList()))
                 .isNull();
     }
 
     @Test
     void passedSingleDirectPropertyAsColumnList() {
-        PropertyMapping propertyMapping = PropertyMapping.structPropToColumnMapFromColumnHints(List.of(
+        PropertyMapping propertyMapping = PropertyMapping.structPropToColumnMapFromColumnHints(java.util.Arrays.asList(
                 "a"
         ));
         assertThat(propertyMapping).isNotNull();
@@ -26,7 +26,7 @@ class PropertyMappingTest {
 
     @Test
     void passedComplexSingleBaseScenarioAsColumnListWithNumberSpecifiers() {
-        PropertyMapping propertyMapping = PropertyMapping.structPropToColumnMapFromColumnHints(List.of(
+        PropertyMapping propertyMapping = PropertyMapping.structPropToColumnMapFromColumnHints(java.util.Arrays.asList(
                 "id___NUMBER",
                 "a_id___NUMBER",
                 "a_b",
